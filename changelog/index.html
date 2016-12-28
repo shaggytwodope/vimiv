@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>vimiv - changelog</title>
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+    <div id="header">
+      <div class="wrapper">
+        <a href=".." class="btn">Home</a>
+        <a href="https://github.com/karlch/vimiv" class="btn">GitHub</a>
+        <a href="../documentation/installation/" class="btn">Install</a>
+        <a href="../documentation/" class="btn">Docs</a>
+        <a href="." class="btn">Changelog</a>
+        <a href="../screenshots" class="btn">Screenshots</a>
+      </div>
+    </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+
+        <h1>Changelog</h1>
+
+        The most important changes between versions are listed here.
+
+        <h4>v0.8 (unreleased)</h4>
+        <ul>
+        <li>Rewrite large parts to make vimiv a Gtk.Application</li>
+        <li>Rewrite parser as Gtk parser</li>
+        <li>Rewrite open using the Gtk.Application do_open method</li>
+        <li>Add command copy to clipboard which copies the currently selected
+            image name to clipboard or primary depending on the copy_to_primary
+            setting. The selection can be toggled using the set clipboard!
+        command.</li>
+        <li>Default flip keybindings to | and _ because y and Y are used for the
+            copy method</li>
+        <li>Implement --temp-basedir flag</li>
+        <li>Rewrite command line completion with a Gtk.TreeView This allows the
+            usage of native Gtk filtering and showing some information on
+            internal commands. Downside: no more completion for external
+            commands as the Gtk.ListStore model involved is not performant
+            enough for large amounts of data.</li>
+        <li>Rename and merge commands:
+            <li class="li2">zoom_thumb_in/_out merged into zoom_in/_out</li>
+            <li class="li2">cmd_history_* renamed to history_*</li>
+            <li class="li2">left/down/up/right merged into scroll hjkl</li>
+            <li class="li2">bri_/con_/sha_focus merged into focus_slider bri/con/sha</li>
+            <li class="li2">slideshow_inc/_dec merged into slideshow_delay value</li>
+        </li>
+        <li>Allow setting text upon command line entry via command text.</li>
+        <li>Improve messages from the statusbar. They now come in three
+            flavours: error, warning and info and set a different color
+            indicater for each one.</li>
+        <li>Introduce tilde_in_statusbar setting to collapse $HOME to ~ in the
+            library statusbar.</li>
+        <li>Introduce clear_status command to remove any numbers or messages
+            from the statusbar.</li>
+        </ul>
+
+        <h4>v0.7.3</h4>
+        <ul>
+        <li>Bugfix release</li>
+        <li>Fix thumbnail creation for input files with dot (thanks aszlig)</li>
+        <li>Use native python to generate list of external commands (thanks
+            aszlig)</li>
+        <li>Do not use command line arguments in test mode (thanks aszlig)</li>
+        <li>Catch broken symlinks in the library and filter them</li>
+        </ul>
+
+        <h4>v0.7.2</h4>
+        <ul>
+        <li>Add search in thumbnail mode</li>
+        <li>Make it possible to go straight to thumbnail mode from library</li>
+        <li>t is bound to thumbnail mode in library now instead of toggling
+            show_hidden by default</li>
+        <li>Fix fullscreen behaviour in some DEs</li>
+        <li>Minor code optimization and tweaks</li>
+        <li>Display useful error messages when a setting in the configfile is invalid.</li>
+        <li>Add :version command and --version flag</li>
+        </ul>
+
+        <h4>v0.7.1</h4>
+        <ul>
+        <li>Bugfix release</li>
+        <li>Always start search at current position</li>
+        <li>Fix incsearch when search has no results</li>
+        <li>Fix search problems when image and library are open</li>
+        <li>Failed thumbnails now show up as error icon</li>
+        </ul>
+
+        <h4>v0.7</h4>
+        <ul>
+        <li>Add zooming of thumbnails</li>
+        <li>Add support for aliases</li>
+        <li>Compatability with Gtk 3.22</li>
+        <li>Add incsearch</li>
+        </ul>
+
+        <h4>v0.6.1</h4>
+        <ul>
+        <li>Bugfix release after implementing a testsuite</li>
+        <li>Stop mark_between from marking directories</li>
+        <li>Fix clear_thumbs</li>
+        <li>Fix leaving command line on double tab</li>
+        <li>Fix set library_width</li>
+        <li>grow_/shrink_lib allow an argument</li>
+        <li>Implemented error message pop-up for fatal errors at startup</li>
+        <li>Add icon for vimiv</li>
+        <li>Improve scrolling in library and thumbnail mode</li>
+        <li>Library border now set with Gtk.Separator, border_color is no
+            longer in config</li>
+        <li>Proper pause and play of animated Gifs</li>
+        </ul>
+
+        <h4>v0.6</h4>
+        <ul>
+        <li>Major rebase of code rewriting vimiv as python module</li>
+        <li>Add option to disable thumbnail cache</li>
+        <li>Handle symlinks neatly: do not follow them into their parent
+            directory</li>
+        <li>Open images regardless of extension</li>
+        <li>Inform when slideshow reaches beginning again</li>
+        <li>Automatically resize thumbnail grid</li>
+        <li>Much better tab completion</li>
+        </ul>
+
+        <h4>v0.5</h4>
+        <ul>
+        <li>Pipe to vimiv</li>
+        <li>Built-in Tag support</li>
+        <li>Multithreading of external commands</li>
+        <li>New configfiles vimivrc and keys.conf instead of vimivrc.py</li>
+        <li>Search results navigable with N and P</li>
+        <li>Search can be case insensitive</li>
+        <li>Implement search highlighting</li>
+        </ul>
+
+        <h4>v0.4.1</h4>
+        <ul>
+        <li>Let external shell handle external arguments, allows for pipes, ...</li>
+        <li>Colon and slash displayed in command line for commands and searching</li>
+        <li>Command history now with arrow keys and supports substring search</li>
+        <li>All external commands can be tab-completed</li>
+        <li>Follow symbolic links to their directory</li>
+        <li>Escape sequences as expected for % and *</li>
+        </ul>
+
+        <h4>v0.4</h4>
+        <ul>
+        <li>Added a command line</li>
+        <li>Added various internal commands for the command line</li>
+        <li>Tab-completion</li>
+        <li>Solved a minor bug: when manipulating images and returning back to the value 0
+            in any of the sliders the image wouldn't be updated before</li>
+        <li>Arrow keys now support prefixing by numbers</li>
+        </ul>
+
+        <h4>v0.3</h4>
+        <ul>
+        <li>Vimiv is now single window</li>
+        <li>Catch some more exceptions</li>
+        <li>Update the statusbar</li>
+        <li>Improve manipulation of images</li>
+        </ul>
+
+        <h4>v0.2</h4>
+        <ul>
+        <li>Fullscreen now works for both the main window and the library pop-up</li>
+        <li>Images and directories are distinguished in the library</li>
+        <li>An extra keyhandler for the library</li>
+        <li>Different handling of showing directory size, highly increases library
+            performance</li>
+        <li>Remember last position in library</li>
+        <li>Add the cmd_handler</li>
+        <li>If a folder is given as path, open it in the library</li>
+        <li>Prefix zoom with numbers</li>
+        <li>Marking images much more useful</li>
+        <li>Handling of some standard keybindings (^C, ^Q)</li>
+        </ul>
+
+        <h4>v0.1</h4>
+        <ul>
+        <li>Initial release</li>
+        </ul>
+
+      </section>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>

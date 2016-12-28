@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>vimiv - documentation for developers</title>
+    <link rel="stylesheet" href="../../stylesheets/styles.css">
+    <link rel="stylesheet" href="../../stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../../javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+    <div id="header">
+      <div class="wrapper">
+        <a href="../.." class="btn">Home</a>
+        <a href="https://github.com/karlch/vimiv" class="btn">GitHub</a>
+        <a href="../installation" class="btn">Install</a>
+        <a href=".." class="btn">Docs</a>
+        <a href="../../changelog" class="btn">Changelog</a>
+        <a href="../../screenshots" class="btn">Screenshots</a>
+      </div>
+    </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+
+    <h1>Documentation for developers</h1>
+
+    <a name="contributing"><h3>Contributing</h3></a>
+
+    You want to contribute? Great!<br/><br/>
+
+    This page contains the guidelines for contributing to vimiv and some helpful
+    information to get you started. If any of the guidelines stop you from
+    contributing, please do so anyway. They are only here to make my life
+    easier, I will happily try to fix any problems myself.<br/><br/>
+
+    If you run into any issues, feel free to contact me under
+    <a href="mailto:karlch@protonmail.com">karlch@protonmail.com</a>
+    .
+
+    <h3>Finding something to do</h3>
+    You probably already know what you want to work on as you are reading this
+    page. If you want to implement a new feature, it might be a good idea to
+    open a feature request on the
+    <a href="https://github.com/karlch/vimiv/issues">issue tracker</a> or send
+    me an <a href="mailto:karlch@protonmail.com">email</a> first.
+    Otherwise you might be dissapointed if I do not accept your pull request
+    because I do not want this feature added.<br/><br/>
+
+    A great way to help is to work on
+    <a href="https://github.com/karlch/vimiv/issues">open issues</a>.<br/><br/>
+
+    As this is my first larger project, reviewing and improving the code itself
+    is another possibility to contribute. Especially the testsuite probably
+    needs some improvement.<br/><br/>
+    
+    If you do not want to code anything, you can still contribute by:
+    <ul>
+    <li>Improving the documentation</li>
+    <li>Designing a keybinding cheatsheet</li>
+    <li>Working on this website and on any graphics like the icon</li>
+    </ul>
+
+    <h3>Style and tests</h3>
+
+    Newly introduced code should not break any existing tests or modify them
+    according to the new behaviour. If you introduce a new feature, writing a
+    test for it would be awesome!
+
+    The tests can be run with
+    <pre><code>$ make test</code></pre>
+    This simply calls the script
+    <a href="https://github.com/karlch/vimiv/blob/master/scripts/run_tests.sh" class="filename">run_tests.sh</a>.
+    which starts by cloning the images used for tests from the branch
+    <a href="https://github.com/karlch/vimiv/tree/testimages">testimages</a>. If
+    then starts openbox in Xvfb on display :42. The testsuite is then run with
+    <a href="https://nose.readthedocs.io/en/latest/">nosetests</a>.</br></br>
+
+    Similarly the stlye checkers are run with
+    <pre><code>$ make lint</code></pre>
+    which calls
+    <a href="https://www.pylint.org/">pylint</a>,
+    <a href="http://www.pydocstyle.org/en/latest/">pydocstyle</a> and
+    <a href="https://pycodestyle.readthedocs.io/en/latest/#">pycodestyle</a>
+    for all .py files in the vimiv and tests directories. They are configured in
+    <a href="https://github.com/karlch/vimiv/blob/master/.pylintrc" class="filename">.pylintrc</a>,
+    <a href="https://github.com/karlch/vimiv/blob/master/.pydocstylerc" class="filename">.pydocstylerc</a> and
+    <a href="https://github.com/karlch/vimiv/blob/master/.pycodestyle" class="filename">.pycodestyle</a>
+    respectively.</br></br>
+
+    As bonus
+    <pre><code>$ make spellcheck</pre></code>
+    runs spell checking for docstrings and comments
+    using enchant. This does not work well when referencing variables, methods,
+    ... but has caught quite a few typos for me. If the only errors remaining
+    are variable names etc., calling
+    <pre><code>$ make spellcheck_add_unknown</code></pre>
+    will add them to the whitelist.
+
+    <h3>Test requirements</h3>
+    Additionally to the standard requirements to get vimiv up and running, the
+    following programs are necessary to run the testsuite and the style
+    checkers.
+    <h6>For the tests</h6>
+    <ul>
+        <li>nosetests</li>
+        <li>xvfb</li>
+        <li>openbox or any other minimal window manager to run in xvfb</li>
+        <li>python coverage</li>
+    </ul>
+    <h6>For the style checkers</h6>
+    <ul>
+        <li>pylint</li>
+        <li>pydocstyle</li>
+        <li>pycodestyle</li>
+        <li>optional: enchant with hunspell_en for spellchecking</li>
+    </ul>
+    
+
+      </section>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>

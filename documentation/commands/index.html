@@ -1,0 +1,833 @@
+<!doctype html>
+<html>
+<script type="text/javascript">
+  function unhide(divID) {
+    var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+  }
+</script>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>vimiv - keybindings and commands</title>
+    <link rel="stylesheet" href="../../stylesheets/styles.css">
+    <link rel="stylesheet" href="../../stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../../javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+    <div id="header">
+      <div class="wrapper">
+        <a href="../.." class="btn">Home</a>
+        <a href="https://github.com/karlch/vimiv" class="btn">GitHub</a>
+        <a href="../installation" class="btn">Install</a>
+        <a href=".." class="btn">Docs</a>
+        <a href="../../changelog" class="btn">Changelog</a>
+        <a href="../../screenshots" class="btn">Screenshots</a>
+      </div>
+    </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+
+    <a name="keybindings"><h1>Keybindings</h1></a>
+
+    <p>
+    The default keybindings are in <b class="filename">/etc/vimiv/keys.conf</b>.
+    The keys are bound to commands. For a complete list of commands with
+    explanation read the next section.
+    </p>
+
+    <p>
+    Entering a number anywhere but in the command line will save the number as
+    [count]. The current [count] is displayed in the statusbar at the bottom right.
+    Some commands support passing [count] as repeat or step.
+    </p>
+
+    <p>
+    A keybinding cheatsheet for every mode has been on my whishlist for quite a
+    while now but unfortunately I still haven't gotten to it...
+    </p>
+
+    <a href="javascript:unhide('toggle_image')"><h6>Image</h6></a>
+    <div id="toggle_image" class="hidden">
+        Lots of image information
+    </div>
+
+    <a href="javascript:unhide('toggle_library')"><h6>Library</h6></a>
+    <div id="toggle_library" class="hidden">
+        Lots of image information
+    </div>
+
+    <a href="javascript:unhide('toggle_thumbnail')"><h6>Thumbnail</h6></a>
+    <div id="toggle_thumbnail" class="hidden">
+        Lots of image information
+    </div>
+
+    <a href="javascript:unhide('toggle_manipulate')"><h6>Manipulate</h6></a>
+    <div id="toggle_manipulate" class="hidden">
+        Lots of image information
+    </div>
+
+    <a href="javascript:unhide('toggle_commandline')"><h6>Command line</h6></a>
+    <div id="toggle_commandline" class="hidden">
+        Lots of image information
+    </div>
+
+    <a name="commands"><h1>Commands</h1></a>
+
+    <p>
+    All vimiv keybindings are mapped to commands. Some of the commands are not
+    accessible from the command line as they are not useful to be run by hand.
+    </p>
+
+    <h3>Summary of commands</h3>
+
+    <table style="width:100%">
+    <tr>
+        <th>Name</th>
+        <th>Explanation</th> 
+    </tr>
+    <tr>
+        <td><a href="#accept_changes">accept_changes</a></td>
+        <td>Accept changes made in manipulate.</td>
+    </tr>
+    <tr>
+        <td><a href="#alias">alias</a></td>
+        <td>Add an alias for a command.</td>
+    </tr>
+    <tr>
+        <td><a href="#autorotate">autorotate</a></td>
+        <td>Rotate all images in the current filelist according to exif
+            data.</td>
+    </tr>
+    <tr>
+        <td><a href="#center">center</a></td>
+        <td>Scroll to the center of the image.</td>
+    </tr>
+    <tr>
+        <td><a href="#clear_thumbs">clear_thumbs</a></td>
+        <td>Delete all files in the thumbnail directory.</td>
+    </tr>
+    <tr>
+        <td><a href="#clear_trash">clear_trash</a></td>
+        <td>Delete all files in the trash directory.</td>
+    </tr>
+    <tr>
+        <td><a href="#copy_abspath">copy_abspath</a></td>
+        <td>Copy the absolute path of the currently selected file to the
+            clipboard.</td>
+    </tr>
+    <tr>
+        <td><a href="#copy_basename">copy_basename</a></td>
+        <td>Copy the base name of the currently selected file to the
+            clipboard.</td>
+    </tr>
+    <tr>
+        <td><a href="#delete">delete</a></td>
+        <td>Delete the current image.</td>
+    </tr>
+    <tr>
+        <td><a href="#discard_changes">discard_changes</a></td>
+        <td>Discard any changes made in manipulate mode and leave it.</td>
+    </tr>
+    <tr>
+        <td><a href="#first">first</a></td>
+        <td>Move to the first image of the filelist in image/thumbnail
+            mode.</td>
+    </tr>
+    <tr>
+        <td><a href="#first_lib">first_lib</a></td>
+        <td>Move to the first file of the filelist in the library.</td>
+    </tr>
+    <tr>
+        <td><a href="#fit">fit</a></td>
+        <td>Fit the image to the current window size.</i></b>. </td>
+    </tr>
+    <tr>
+        <td><a href="#fit_horiz">fit_horiz</a></td>
+        <td>Fit the image horizontally to the current window size. </td>
+    </tr>
+    <tr>
+        <td><a href="#fit_vert">fit_vert</a></td>
+        <td>Fit the image vertically to the current window size. </td>
+    </tr>
+    <tr>
+        <td><a href="#flip">flip</a></td>
+        <td>Flip the current image.</td>
+    </tr>
+    <tr>
+        <td><a href="#focus_library">focus_library</a></td>
+        <td>Focus the library.</td>
+    </tr>
+    <tr>
+        <td><a href="#format">format</a></td>
+        <td>Format all currently open filenames.</td>
+    </tr>
+    <tr>
+        <td><a href="#fullscreen">fullscreen</a></td>
+        <td>Toggle fullscreen mode.</td>
+    </tr>
+    <tr>
+        <td><a href="#grow_lib">grow_lib</a></td>
+        <td>Increase the library width.</td>
+    </tr>
+    <tr>
+        <td><a href="#last">last</a></td>
+        <td>Move to the last image of the filelist in image/thumbnail
+            mode.</td>
+    </tr>
+    <tr>
+        <td><a href="#last_lib">last_lib</a></td>
+        <td>Move to the last file of the filelist in the library.</td>
+    </tr>
+    <tr>
+        <td><a href="#library">library</a></td>
+        <td>Toggle the library.</td>
+    </tr>
+    <tr>
+        <td><a href="#manipulate">manipulate</a></td>
+        <td>Enter manipulate mode.</td>
+    </tr>
+    <tr>
+        <td><a href="#mark">mark</a></td>
+        <td>Mark the currently selected image.</td>
+    </tr>
+    <tr>
+        <td><a href="#mark_all">mark_all</a></td>
+        <td>Mark all images in the current filelist.</td>
+    </tr>
+    <tr>
+        <td><a href="#mark_between">mark_between</a></td>
+        <td>Mark all images between the last two marked images.</td>
+    </tr>
+    <tr>
+        <td><a href="#mark_toggle">mark_toggle</a></td>
+        <td>Toggle the current</td>
+    </tr>
+    <tr>
+        <td><a href="#move_up">move_up</a></td>
+        <td>Move up one directory in the library.</td>
+    </tr>
+    <tr>
+        <td><a href="#next">next</a></td>
+        <td>Move to the next image in the filelist of image mode.</td>
+    </tr>
+    <tr>
+        <td><a href="#next!">next!</a></td>
+        <td>Force moving to the next image in the filelist of image mode.</td>
+    </tr>
+    <tr>
+        <td><a href="#prev">prev</a></td>
+        <td>Move to the previous image in the filelist of image mode.</td>
+    </tr>
+    <tr>
+        <td><a href="#prev!">prev!</a></td>
+        <td>Force moving to the previous image in the filelist of image
+            mode.</td>
+    </tr>
+    <tr>
+        <td><a href="#q">q</a></td>
+        <td>Quit vimiv.</td>
+    </tr>
+    <tr>
+        <td><a href="#q!">q!</a></td>
+        <td>Force quitting vimiv.</td>
+    </tr>
+    <tr>
+        <td><a href="#reload_lib">reload_lib</a></td>
+        <td>Reload the library.</td>
+    </tr>
+    <tr>
+        <td><a href="#rotate">rotate</a></td>
+        <td>Rotate the image counter-clockwise.</td>
+    </tr>
+    <tr>
+        <td><a href="#set animation!">set animation!</a></td>
+        <td>Toggle the animation status of animated Gifs.</td>
+    </tr>
+    <tr>
+        <td><a href="#set brightness">set brightness</a></td>
+        <td>Set the brightness of the current image.</td>
+    </tr>
+    <tr>
+        <td><a href="#set clipboard!">set clipboard!</a></td>
+        <td>Toggle the copy_to_primary setting.</td>
+    </tr>
+    <tr>
+        <td><a href="#set contrast">set contrast</a></td>
+        <td>Set the contrast of the current image.</td>
+    </tr>
+    <tr>
+        <td><a href="#set library_width">set library_width</a></td>
+        <td>Set the library width.</td>
+    </tr>
+    <tr>
+        <td><a href="#set overzoom!">set overzoom!</a></td>
+        <td>Toggle the overzoom setting.</td>
+    </tr>
+    <tr>
+        <td><a href="#set rescale_svg!">set rescale_svg!</a></td>
+        <td>Toggle the rescale_svg setting.</td>
+    </tr>
+    <tr>
+        <td><a href="#set sharpness">set sharpness</a></td>
+        <td>Set the sharpness of the current image.</td>
+    </tr>
+    <tr>
+        <td><a href="#set show_hidden!">set show_hidden!</a></td>
+        <td>Toggle the show_hidden setting.</td>
+    </tr>
+    <tr>
+        <td><a href="#set slideshow_delay">set slideshow_delay</a></td>
+        <td>Set the slideshow delay.</td>
+    </tr>
+    <tr>
+        <td><a href="#set statusbar!">set statusbar!</a></td>
+        <td>Toggle the statusbar.</td>
+    </tr>
+    <tr>
+        <td><a href="#shrink_lib">shrink_lib</a></td>
+        <td>Decrease the library width.</td>
+    </tr>
+    <tr>
+        <td><a href="#slideshow">slideshow</a></td>
+        <td>Toggle the slideshow.</td>
+    </tr>
+    <tr>
+        <td><a href="#slideshow_delay">slideshow_delay</a></td>
+        <td>Change the value of the slideshow delay.</td>
+    </tr>
+    <tr>
+        <td><a href="#tag_write">tag_write</a></td>
+        <td>Write the names of all currently marked images to a tagfile.</td>
+    </tr>
+    <tr>
+        <td><a href="#tag_load">tag_load</a></td>
+        <td>Load all images in a tagfile into image mode.</td>
+    </tr>
+    <tr>
+        <td><a href="#tag_remove">tag_remove</a></td>
+        <td>Delete a tagfile.</td>
+    </tr>
+    <tr>
+        <td><a href="#thumbnail">thumbnail</a></td>
+        <td>Toggle thumbnail mode.</td>
+    </tr>
+    <tr>
+        <td><a href="#unfocus_library">unfocus_library</a></td>
+        <td>Focus the widget last focused before the library.</td>
+    </tr>
+    <tr>
+        <td><a href="#version">version</a></td>
+        <td>Display pop-up with version information.</td>
+    </tr>
+    <tr>
+        <td><a href="#zoom_in">zoom_in</a></td>
+        <td>Zoom in.</td>
+    </tr>
+    <tr>
+        <td><a href="#zoom_out">zoom_out</a></td>
+        <td>Zoom out.</td>
+    </tr>
+    <tr>
+        <td><a href="#zoom_to">zoom_to</a></td>
+        <td>Zoom image to a given percentage.</td>
+    </tr>
+    </table>
+
+    <a name="accept_changes"><h4>accept_changes</h4></a>
+    Accept changes made in manipulate.
+
+    <p>Refers to brightness, contrast and sharpness of the image.</p>
+
+    <a name="alias"><h4>alias</h4></a>
+    Syntax: <t class="command"><b>:alias</b> <i>aliasname command</i></t></br>
+    Add an alias for a command. Works for any type of command, including
+    paths and external commands.</br>
+
+    <h6>Example:</h6>
+    <t class="command"><b>:alias</b> <i>bkg !hsetroot %</i></t></br>
+    Adds an alias bkg to set the desktop background to the currently
+    selected image.
+    <h6>Positional arguments:</h6>
+        <li><i class="command">aliasname</i>: Name of the alias to add.</li>
+        <li><i class="command">command</i>: Command for which the alias is
+            created.</li>
+
+    <a name="autorotate"><h4>autorotate</h4></a>
+    Rotate all images in the current filelist according to exif data.
+    
+    <p>If <code>jhead</code> is installed, it is used for its better performance.
+    Otherwise the python pillow module is used.</p>
+
+    <a name="center"><h4>center</h4></a>
+    Scroll to the center of the current image.
+
+    <a name="clear_thumbs"><h4>clear_thumbs</h4></a>
+    Delete all files in the thumbnail directory.
+
+    <a name="clear_trash"><h4>clear_trash</h4></a>
+    Delete all files in the trash directory.
+
+    <a name="copy_abspath"><h4>copy_abspath</h4></a>
+    Copy the absolute path of the currently selected file to the clipboard.
+    
+    <p>The selection is either clipboard or primary depending on the
+    "copy_to_primary" setting.</p>
+
+    <a name="copy_basename"><h4>copy_basename</h4></a>
+    Copy the base name of the currently selected file to the clipboard.
+
+    <p>The selection is either clipboard or primary depending on the
+    "copy_to_primary" setting.</p>
+    
+    <a name="delete"><h4>delete</h4></a>
+    Delete the currently selected image.
+    
+    <p>Moves the file to the trash directory, per default <t
+       class="filename">~/.vimiv/Trash</t>.</p>
+
+    <a name="first"><h4>first</h4></a>
+    Move to the first image of the filelist in image/thumbnail mode.
+    <h6>Count:</h6>
+    Move to the [count]th image instead.
+
+    <a name="first_lib"><h4>first_lib</h4></a>
+    Move to the first image of the filelist in the library.
+    <h6>Count:</h6>
+    Move to the [count]th image instead.
+
+    <a name="fit"><h4>fit</h4></a>
+    Fit the image to the current window size.
+    
+    <p>Essentially a convenience command doing the same as
+    <b><i>zoom_to 0</i></b>.</p> 
+
+    <a name="fit_horiz"><h4>fit_horiz</h4></a>
+    Fit the image horizontally to the current window size.
+
+    <a name="fit_vert"><h4>fit_vert</h4></a>
+    Fit the image vertically to the current window size.
+
+    <a name="flip"><h4>flip</h4></a>
+    Syntax: <t class="command"><b>:flip</b> <i>direction</i></t></br>
+    Flip the current image.
+    <h6>Positional arguments:</h6>
+    <li><i class="command">direction</i>: Flip direction. 1 to flip
+        horizontally, 0 to flip vertically.</li>
+
+    <a name="focus_library"><h4>focus_library</h4></a>
+    Focus the library.
+
+    <a name="format"><h4>format</h4></a>
+    Syntax: <t class="command"><b>:format</b> <i>formatstring</i></t></br>
+    Format all currently open filenames.
+    <p>Rename all currently open images in the form of
+    <i>formatstring</i>001.ending, <i>formatstring</i>002.ending, and so on.If
+    all currently open images contain exif data, the formatstring can include
+    "%Y", "%m", "%d", "%H", "%M", and "%S". See date(1) if you aren't sure what
+    these mean.</p>
+    <h6>Positional arguments:</h6>
+    <li><i class="command">formatstring</i>: The string used to format the
+        images.</li>
+
+    <a name="fullscreen"><h4>fullscreen</h4></a>
+    Toggle fullscreen mode.
+
+    <a name="grow_lib"><h4>grow_lib</h4></a>
+    Syntax: <t class="command"><b>:grow_lib</b> <i>[value]</i></t></br>
+    Increase the library width.
+    <h6>Optional arguments:</h6>
+    <li><i class="command">value</i>: Value to increase width by. Defaults to
+        20.</li>
+
+    <a name="last"><h4>last</h4></a>
+    Move to the last image of the filelist in image/thumbnail mode.
+    <h6>Count:</h6>
+    Move to the [count]th image instead.
+
+    <a name="last_lib"><h4>last_lib</h4></a>
+    Move to the last image of the filelist in the library.
+    <h6>Count:</h6>
+    Move to the [count]th image instead.
+
+    <a name="library"><h4>library</h4></a>
+    Toggle the library.
+
+    <a name="manipulate"><h4>manipulate</h4></a>
+    Enter manipulate mode.
+
+    <a name="mark"><h4>mark</h4></a>
+    Mark the currently selected image.
+    <p>If the image is already marked, remove the mark.</p>
+
+    <a name="mark_all"><h4>mark_all</h4></a>
+    Mark all images in the current filelist.
+
+    <a name="mark_between"><h4>mark_between</h4></a>
+    Mark all images between the last two marked images.
+    <p>If any images are marked, the marks are cleared, otherwise the last list
+    of marked images is marked again.</p>
+
+    <a name="move_up"><h4>move_up</h4></a>
+    Move up one directory in the library.
+    <p>The library is opened and focused if it is not open or focused yet.</p>
+
+    <a name="next"><h4>next</h4></a>
+    Move to the next image in the filelist of image mode.
+    <h6>Count:</h6>
+    Move [count] images forward.
+
+    <a name="next!"><h4>next!</h4></a>
+    Force moving to the next image in the filelist of image mode.
+    <p>Discard any changes made in manipulate mode.</p>
+    <h6>Count:</h6>
+    Move [count] images forward.
+
+    <a name="prev"><h4>prev</h4></a>
+    Move to the previous image in the filelist of image mode.
+    <h6>Count:</h6>
+    Move [count] images backward.
+
+    <a name="prev!"><h4>prev!</h4></a>
+    Force moving to the previous image in the filelist of image mode.
+    <p>Discard any changes made in manipulate mode.</p>
+    <h6>Count:</h6>
+    Move [count] images backward.
+
+    <a name="q"><h4>q</h4></a>
+    Quit vimiv.
+    <p>Print any marked images to stdout.</p>
+
+    <a name="q!"><h4>q!</h4></a>
+    Force quitting vimiv.
+    <p>Discard any changes made in manipulate mode. Print any marked images to
+    stdout.</p>
+
+    <a name="reload_lib"><h4>reload_lib</h4></a>
+    Reload the library.
+
+    <a name="rotate"><h4>rotate</h4></a>
+    Syntax: <t class="command"><b>:rotate</b> <i>value</i></t></br>
+    Rotate the image counter-clockwise.
+    <h6>Positional arguments:</h6>
+    <li><i class="command">value</i>: Rotate (value % 4) times.</li>
+    <h6>Count:</h6>
+    Rotate the image (count * <i class="command">value</i> % 4) times.
+
+    <a name="set animation!"><h4>set animation!</h4></a>
+    Toggle the animation status of animated Gifs.
+
+    <a name="set brightness"><h4>set brightness</h4></a>
+    Syntax: <t class="command"><b>:set brightness</b> <i>[value]</i></t></br>
+    Set the brightness of the current image.
+    <p>Enter manipulate mode if not there yet.</p>
+    <h6>Optional arguments:</h6>
+    <li><i class="command">value</i>: Value between -127 and 127 to set the
+        brightness to. Defaults to 0.</li>
+
+    <a name="set clipboard!"><h4>set clipboard!</h4></a>
+    Toggle the copy_to_primary setting.
+    <p>Switches between primary and clipboard.</p>
+    
+    <a name="set contrast"><h4>set contrast</h4></a>
+    Syntax: <t class="command"><b>:set contrast</b> <i>[value]</i></t></br>
+    Set the contrast of the current image.
+    <p>Enter manipulate mode if not there yet.</p>
+    <h6>Optional arguments:</h6>
+    <li><i class="command">value</i>: Value between -127 and 127 to set the
+        contrast to. Defaults to 0.</li>
+
+    <a name="set library_width"><h4>set library_width</h4></a>
+    Syntax: <t class="command"><b>:set library_width</b> <i>[value]</i></t></br>
+    Set the library width.
+    <h6>Optional arguments:</h6>
+    <li><i class="command">value</i>: Value to set the library width to.
+        Defaults to the library_width setting.</li>
+    
+    <a name="set overzoom!"><h4>set overzoom!</h4></a>
+    Toggle the overzoom setting.
+
+    <a name="set rescale_svg!"><h4>set rescale_svg!</h4></a>
+    Toggle the rescale_svg setting.
+
+    <a name="set sharpness"><h4>set sharpness</h4></a>
+    Syntax: <t class="command"><b>:set sharpness</b> <i>[value]</i></t></br>
+    Set the sharpness of the current image.
+    <p>Enter manipulate mode if not there yet.</p>
+    <h6>Optional arguments:</h6>
+    <li><i class="command">value</i>: Value between -127 and 127 to set the
+        sharpness to. Defaults to 0.</li>
+
+    <a name="set show_hidden!"><h4>set show_hidden!</h4></a>
+    Toggle the show_hidden setting.
+
+    <a name="set slideshow_delay"><h4>set slideshow_delay</h4></a>
+    Syntax: <t class="command"><b>:set slideshow_delay</b> <i>[value]</i></t></br>
+    Set the slideshow delay.
+    <h6>Optional arguments:</h6>
+    <li><i class="command">value</i>: Value to set the slideshow delay to.
+        Defaults to the slideshow_delay setting.</li>
+
+    <a name="set statusbar!"><h4>set statusbar!</h4></a>
+    Toggle the statusbar.
+    <h6>Note:</h6>
+    Even if the statusbar is hidden, error messages are still displayed.
+
+    <a name="shrink_lib"><h4>shrink_lib</h4></a>
+    Syntax: <t class="command"><b>:shrink_lib</b> <i>[value]</i></t></br>
+    Decrease the library width.
+    <h6>Optional arguments:</h6>
+    <li><i class="command">value</i>: Value to decrease width by. Defaults to
+        20.</li>
+
+    <a name="slideshow"><h4>slideshow</h4></a>
+    Toggle the slideshow.
+    <h6>Count:</h6>
+    Set the slideshow delay to [count].
+
+    <a name="slideshow_delay"><h4>slideshow_delay</h4></a>
+    Syntax: <t class="command"><b>:slideshow_delay</b> <i>value</i></t></br>
+    Change the value of the slideshow delay.
+    <h6>Positional arguments:</h6>
+    <li><i class="command">value</i>: Change by value.</li>
+    <h6>Note:</h6>
+    This decreases or increases by the given value.  If you want to set the
+    delay to a specific value, use <a href="#set slideshow_delay">set
+    slideshow_delay</a> instead.
+
+    <a name="tag_write"><h4>tag_write</h4></a>
+    Syntax: <t class="command"><b>:tag_write</b> <i>tagname</i></t></br>
+    Write the names of all currently marked images to a tagfile.
+    <p>If the file does not exist, create it. If it does, append the names to
+    the tagfile if they are not in it already.</p>
+    <h6>Positional arguments:</h6>
+    <li><i class="command">tagname</i>: Name of the tagfile to write to.</li>
+
+    <a name="tag_load"><h4>tag_load</h4></a>
+    Syntax: <t class="command"><b>:tag_load</b> <i>tagname</i></t></br>
+    Load all images in a tagfile into image mode.
+    <h6>Positional arguments:</h6>
+    <li><i class="command">tagname</i>: Name of the tagfile to load.</li>
+
+    <a name="tag_remove"><h4>tag_remove</h4></a>
+    Syntax: <t class="command"><b>:tag_remove</b> <i>tagname</i></t></br>
+    Delete a tagfile.
+    <h6>Positional arguments:</h6>
+    <li><i class="command">tagname</i>: Name of the tagfile to delete.</li>
+
+    <a name="thumbnail"><h4>thumbnail</h4></a>
+    Toggle thumbnail mode.
+
+    <a name="unfocus_library"><h4>unfocus_library</h4></a>
+    Focus the widget last focused before the library.
+
+    <a name="version"><h4>version</h4></a>
+    Display pop-up with version information.
+    <p>Includes version number, link to the website and license.</p>
+
+    <a name="zoom_in"><h4>zoom_in</h4></a>
+    Syntax: <t class="command"><b>:zoom_in</b> <i>[steps]</i></t></br>
+    Zoom in.
+    <h6>Optional arguments:</h6>
+    <li><i class="command">steps</i>: Zoom in by the number of steps.</li>
+    <h6>Count:</h6>
+    Zoom in by [count] steps.
+    <h6>Note:</h6>
+    Numbers prepended by 0 are parsed as decimals. For example 033 is parsed as
+    0.33. This allows giving a decimal step via [count].
+
+    <a name="zoom_out"><h4>zoom_out</h4></a>
+    Syntax: <t class="command"><b>:zoom_out</b> <i>[steps]</i></t></br>
+    Zoom out.
+    <h6>Optional arguments:</h6>
+    <li><i class="command">steps</i>: Zoom out by the number of steps.</li>
+    <h6>Count:</h6>
+    Zoom out by [count] steps.
+    <h6>Note:</h6>
+    Numbers prepended by 0 are parsed as decimals. For example 033 is parsed as
+    0.33. This allows giving a decimal step via [count].
+
+    <a name="zoom_to"><h4>zoom_to</h4></a>
+    Syntax: <t class="command"><b>:zoom_to</b> <i>percent</i></t></br>
+    Zoom image to a given percentage.
+    <h6>Positional arguments:</h6>
+    <li><i class="command">percent</i>: Percentage to zoom to.</li>
+    <h6>Count:</h6>
+    Zoom to [count].
+    <h6>Note:</h6>
+    Numbers prepended by 0 are parsed as decimals. For example 033 is parsed as
+    0.33. This allows giving a decimal percentage via [count].
+
+
+    <h3>Summary of hidden commands</h3>
+
+    The following commands can only be bound to keys and are not accessible from
+    the command line.
+        
+    <table>
+    <tr>
+        <td><a href="#clear_status">clear_status</a></td>
+        <td>Clear any numbers or messages from the statusbar.</td>
+    </tr>
+    <tr>
+        <td><a href="#command">command</a></td>
+        <td>Enter the command line.</td>
+    </tr>
+    <tr>
+        <td><a href="#scroll">scroll</a></td>
+        <td>Scroll image or thumbnail.</td>
+    </tr>
+    <tr>
+        <td><a href="#scroll_lib">scroll_lib</a></td>
+        <td>Scroll the library.</td>
+    </tr>
+    <tr>
+        <td><a href="#search">search</a></td>
+        <td>Search for text in the current filelist.</td>
+    </tr>
+    <tr>
+        <td><a href="#search_next">search_next</a></td>
+        <td>Navigate to the next search result.</td>
+    </tr>
+    <tr>
+        <td><a href="#search_prev">search_next</a></td>
+        <td>Navigate to the previous search result.</td>
+    </tr>
+    <tr>
+        <td><a href="#history_down">history_down</a></td>
+        <td>Go down by one in command history.</td>
+    </tr>
+    <tr>
+        <td><a href="#history_up">history_up</a></td>
+        <td>Go up by one in command history.</td>
+    </tr>
+    <tr>
+        <td><a href="#discard_command">discard_command</a></td>
+        <td>Leave the command line discarding currently entered text.</td>
+    </tr>
+    <tr>
+        <td><a href="#complete">complete</a></td>
+        <td>Start command line completion.</td>
+    </tr>
+    <tr>
+        <td><a href="#complete_inverse">complete_inverse</a></td>
+        <td>Start command line completion selecting items inversely.</td>
+    </tr>
+    <tr>
+        <td><a href="#slider">slider</a></td>
+        <td>Change the value of the currently focused slider.</td>
+    </tr>
+    <tr>
+        <td><a href="#focus_slider">focus_slider</a></td>
+        <td>Focus one of the manipulate sliders.</td>
+    </tr>
+    </table>
+
+    <a name="clear_status"><h4>clear_status</h4></a>
+    Clear any numbers or messages from the statusbar.
+
+    <a name="command"><h4>command</h4></a>
+    Syntax: <t class="command"><b>:command</b> <i>[text]</i></t></br>
+    Enter the command line.
+    <h6>Optional arguments:</h6>
+    <li><i class="command">text</i>: Set text of the command line.</li>
+
+    <a name="scroll"><h4>scroll</h4></a>
+    Syntax: <t class="command"><b>:scroll</b> <i>direction</i></t></br>
+    Scroll image or thumbnail.
+    <h6>Positional arguments:</h6>
+    <li><i class="command">direction</i>: The direction to scroll in. One of <i
+           class = "command">hjklHJKL</i>. Capitals scroll to the far end.</li>
+
+    <a name="scroll_lib"><h4>scroll_lib</h4></a>
+    Syntax: <t class="command"><b>:scroll_lib</b> <i>direction</i></t></br>
+    Scroll the library.
+    <h6>Positional arguments:</h6>
+    <li><i class="command">direction</i>: The direction to scroll in. One of <i
+           class = "command">hjkl</i>.</li>
+
+    <a name="search"><h4>search</h4></a>
+    Syntax: <t class="command"><b>:search</b> <i>text</i></t></br>
+    Search for text in the current filelist.
+    <p>Search through the current filelist for matching text. Focus the next
+    result. Per default search is case-sensitive and incsearch is enabled.
+    setting</p>
+    <h6>Positional arguments:</h6>
+    <li><i class="command">text</i>: The text to search for.</li>
+
+    <a name="search_next"><h4>search_next</h4></a>
+    Navigate to the next search result.
+    <h6>Count:</h6>
+    Move [count] search results forward.
+    
+    <a name="search_prev"><h4>search_prev</h4></a>
+    Navigate to the previous search result.
+    <h6>Count:</h6>
+    Move [count] search results backward.
+    
+    <a name="history_down"><h4>history_down</h4></a>
+    Go down by one in command line history.
+    <p>Does a substring search with the current text in the command line.</p>
+    <h6>Note:</h6>
+    Only makes sense in COMMAND section.
+
+    <a name="history_up"><h4>history_up</h4></a>
+    Go up by one in command line history.
+    <p>Does a substring search with the current text in the command line.</p>
+    <h6>Note:</h6>
+    Only makes sense in COMMAND section.
+
+    <a name="discard_command"><h4>discard_command</h4></a>
+    Leave the command line discarding currently entered text.
+    <h6>Note:</h6>
+    Only makes sense in COMMAND section.
+
+    <a name="complete"><h4>complete</h4></a>
+    Start command line completion.
+    <p>Complete to best match if any. Then select the next item in the
+    completion menu.</p>
+    <h6>Note:</h6>
+    Only makes sense in COMMAND section.
+
+    <a name="complete_inverse"><h4>complete_inverse</h4></a>
+    Start command line completion.
+    <p>Complete to best match if any. Then select the previous item in the
+    completion menu.</p>
+    <h6>Note:</h6>
+    Only makes sense in COMMAND section.
+
+    <a name="slider"><h4>slider</h4></a>
+    Syntax: <t class="command"><b>:slider</b> <i>[value]</i></t></br>
+    Change the value of the currently focused slider.
+    <h6>Optional arguments:</h6>
+    <li><i class="command">value</i>: Change by value. Defaults to 1.</li>
+    <h6>Note:</h6>
+    Only makes sense in MANIPULATE section.
+
+    <a name="focus_slider"><h4>focus_slider</h4></a>
+    Syntax: <t class="command"><b>:focus_slider</b> <i>name</i></t></br>
+    Focus one of the manipulate slider.
+    <h6>Positional arguments:</h6>
+    <li><i class="command">name</i>: Name of the slider. One of <i
+           class="command">bri/con/sha</i>.</li>
+    <h6>Note:</h6>
+    Only makes sense in MANIPULATE section.
+
+      </section>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>

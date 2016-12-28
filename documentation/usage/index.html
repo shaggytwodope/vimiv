@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+<script type="text/javascript">
+  function unhide(divID) {
+    var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+  }
+</script>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>vimiv - usage</title>
+    <link rel="stylesheet" href="../../stylesheets/styles.css">
+    <link rel="stylesheet" href="../../stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../../javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+    <div id="header">
+      <div class="wrapper">
+        <a href="../.." class="btn">Home</a>
+        <a href="https://github.com/karlch/vimiv" class="btn">GitHub</a>
+        <a href="../installation" class="btn">Install</a>
+        <a href=".." class="btn">Docs</a>
+        <a href="../../changelog" class="btn">Changelog</a>
+        <a href="../../screenshots" class="btn">Screenshots</a>
+      </div>
+    </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+
+    <h1>Usage</h1>
+
+    <a name="getting_started"><h4>Getting started</h4></a>
+
+    <p>
+    You can start vimiv from any application launcher with its .desktop file or
+    from the command line using the <code>vimiv</code> command. If any valid
+    image paths are given, the images are opened directly, otherwise the library
+    is opened.
+    </p>
+
+    <p>
+    To close vimiv press <code>q</code>, <code>^q (Control+q)</code> or type in
+    <code>:q</code> in the command line.
+    </p>
+
+    <p>
+    Vimiv is, as one would expect from an application with vim-like keybindings,
+    completely keyboard driven. To get you started some of the most important
+    keybindings for controlling vimiv are listed below. For a complete list of
+    them check out the
+    <a href="../keybindings">keybinding</a> documentation.
+    </p>
+
+    <a name="image"><h4>Image</h4></a>
+
+    <p>
+    Scrolling the image is done with <code>hjkl</code>. The next image is
+    selected with <code>n</code>, the previous one with <code>p</code>. To show
+    the first/last image use <code>g/G</code>.
+    </p>
+
+    <p>
+    Zooming in and out is done with <code>+/-</code>. To fit the image to the
+    current window size use <code>w</code>. <code>e/E</code> fit
+    horizontally/vertically.
+    </p>
+
+    <a name="library"><h4>Library</h4></a>
+
+    <p>
+    The behaviour of the library is similar to the one of the file manager
+    <a href="http://ranger.nongnu.org/">ranger</a>.
+    You can scroll down/up with <code>j/k</code>. <code>g/G</code> select the
+    first/last file in the list.  <code>h</code> opens the parent directory
+    while <code>l</code> selects the current file. If the file is a directory,
+    it is opened in the library. An image is displayed to the right of the
+    library.  Pressing <code>l</code> again closes the library and focuses the
+    image.
+    </p>
+
+    <p>
+    Toggle the library with <code>o</code>, toggle focus between the library and
+    the last other widget with <code>O (Shift+o)</code>.
+    </p>
+
+
+    <a name="thumbnail"><h4>Thumbnail</h4></a>
+
+    <p>
+    Thumbnail mode is toggled with <code>t</code>. As always <code>hjkl</code>
+    and <code>g/G</code> work as expected.
+    </p>
+
+    <p>
+    It is also possible to vary the size of the thumbnails with the
+    <code>+/-</code> keys.
+    </p>
+
+    <a name="image_editing"><h4>Image editing</h4></a>
+
+    <p>
+    Images can be rotated with the <code>&lt;</code> and <code>&gt;</code>,
+    flipped with the <code>|</code> and <code>_</code> keys. These changes are
+    automatically applied to the file. An image is deleted with <code>x</code>.
+    This actually moves the image to <b class="filename">~/.vimiv/Trash</b>.
+    </p>
+
+    <p>
+    For additional editing open manipulate mode with <code>c</code>. Here
+    brightness, contrast and sharpness can be edited. To focus the respective
+    slider use the <code>bcs</code> keys. To apply the changes accept with
+    <code>Return</code>, to leave manipulate mode reverting any changes press
+    <code>Escape</code>.
+    </p>
+
+    <a name="commandline"><h4>Command line</h4></a>
+
+    <p>
+    Similar to many keyboard centric programs, vimiv includes a simple commmand
+    line to run commands. It is opened with <code>:</code> and closed with
+    <code>Return</code> to run a command and <code>Escape</code> to discard it.
+    </p>
+
+    <p>
+    When entering the command line a completion window for vimiv's commands is
+    displayed. Pressing <code>Tab</code> completes to the best match if there is
+    one, continuing to press <code>Tab</code> cycles through the completions.
+    </p>
+
+    <p>
+    Entering <code>~</code>, <code>./</code>, or <code>/</code> at the beginning
+    of the command line lets vimiv interpret the command as a path. A valid
+    directory/image is opened in the library/image. Completing paths is
+    also supported.
+    </p>
+
+    <p>
+    Prepending a command with <code>!</code> lets vimiv interpret the command as
+    an external command. The following text is passed to the shell. Here
+    <code>%</code> is replaced with the currently selected file and
+    <code>*</code> with the current file list.</br>
+    Example: <code>:!gimp %</code> 
+    opens the currently selected image in gimp.
+    </p>
+
+    <p>
+    External commands can be "piped to vimiv" by appending the <code>|</code>
+    char to the command. The output of the command is then parsed by vimiv. If
+    the first line out output is a directory, it is opened in the library. If it
+    is a valid image, all lines are checked for images and these are opened.
+    Otherwise vimiv will try to run an internal command from the output.</br>
+    Example: <code>:!find ~/Images -ctime -5 -type f |</code> 
+    opens all files in ~/Images younger than five days.
+    </p>
+
+    <p>
+    To search through open files open the command line with <code>/</code>. Per
+    default this searches through the names incrementally and case-sensitively
+    but this can be changed in the configuration file.
+    </p>
+
+    <p>
+    Command line history is saved to <b class="filename">~/.vimiv/history</b>.
+    History can be navigated and searched through using the <code>^P/^N</code>
+    and <code>Up/Down</code> keys.
+    </p>
+
+    <p>
+    Some commands support passing a [count] as repeat or step. If so, prepend
+    [count] to the command, e.g. <code>:5next</code>.
+    </p>
+
+    <a name="mark_tag"><h4>Marks and tags</h4></a>
+
+    <p>
+    Images are marked with <code>m</code>. To remove the mark from a marked
+    image simply press <code>m</code> again. <code>M</code> will toggle the mark
+    status: If any images are marked, the marks are cleared, otherwise the last
+    list of marked images is marked again. To quickly mark a bunch of images the
+    <code>:mark_between</code> command is useful. It marks all images between
+    the last two marked images.
+    </p>
+
+    <p>
+    If images are marked, the simple manipulations (rotating, flipping and
+    deleting) are executed for all marked images and not for the current image.
+    In thumbnail mode those actions will always apply to marked images. To save
+    a list of marked images, vimiv has a simple tag system.
+    </p>
+
+    <p>
+    <code>:tag_write tagname</code> saves the list of currently marked images to
+    a file saved in <b class="filename">~/.vimiv/Tags/tagname</b>.  If the file
+    doesn't exist, it will be created. If it does, the names will be appended to
+    it, if they aren't in the tagfile already.</br>
+    <code>:tag_load tagname</code> loads all images in the tagfile tagname.</br>
+    <code>:tag_remove tagname</code> deletes the tagfile tagname.
+    </p>
+
+    <h4>More information</h4>
+
+    You may want to check out how to
+    <a href="../configuration" target="_blank">configure</a> vimiv, a list of
+    all <a href="../commands/#keybindings" target="_blank">keybindings</a> or of
+    all <a href="../commands/#commands">commands</a>.
+
+      </section>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>

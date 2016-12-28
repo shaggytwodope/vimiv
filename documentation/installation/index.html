@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>vimiv - installation</title>
+    <link rel="stylesheet" href="../../stylesheets/styles.css">
+    <link rel="stylesheet" href="../../stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../../javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+    <div id="header">
+      <div class="wrapper">
+        <a href="../.." class="btn">Home</a>
+        <a href="https://github.com/karlch/vimiv" class="btn">GitHub</a>
+        <a href="." class="btn">Install</a>
+        <a href=".." class="btn">Docs</a>
+        <a href="../../changelog" class="btn">Changelog</a>
+        <a href="../../screenshots" class="btn">Screenshots</a>
+      </div>
+    </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+
+        <h1>Installation</h1>
+
+        <h3>General</h3>
+
+        Install the dependencies listed below first. To use the
+        development version clone the
+        <a href="https://github.com/karlch/vimiv"> github repository</a>,
+        for the latest stable check out the 
+        <a href="https://github.com/karlch/vimiv/releases">releases</a>
+        page. To install a simple
+        <pre><code>
+        # make install
+        </code></pre>
+        should suffice. To remove vimiv the standard
+        <pre><code>
+        # make uninstall
+        </code></pre>
+        works.  You may need to update your icon cache after installation.
+
+        <h3>Arch Linux</h3>
+
+        For Arch Linux users there are two packages in the AUR.
+        <a href="https://aur.archlinux.org/packages/vimiv/">vimiv</a> for the
+        stable version and
+        <a href="https://aur.archlinux.org/packages/vimiv-git/">vimiv-git</a>
+        for the development branch.
+
+        <a id="dep"><h3>Dependencies</h3></a>
+        <ul>
+          <li>python3</li>
+          <li>python-gobject</li>
+          <li>Gtk3</li>
+          <li>python-pillow</li>
+          <li>python-setuptools for installation</li>
+          <li>optional: jhead for better autorotation with exif data</li>
+        </ul>
+
+
+      </section>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>

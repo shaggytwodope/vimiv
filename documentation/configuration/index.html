@@ -1,0 +1,311 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>vimiv - configuration</title>
+    <link rel="stylesheet" href="../../stylesheets/styles.css">
+    <link rel="stylesheet" href="../../stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../../javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+    <div id="header">
+      <div class="wrapper">
+        <a href="../.." class="btn">Home</a>
+        <a href="https://github.com/karlch/vimiv" class="btn">GitHub</a>
+        <a href="../installation/" class="btn">Install</a>
+        <a href=".." class="btn">Docs</a>
+        <a href="../../changelog" class="btn">Changelog</a>
+        <a href="../../screenshots" class="btn">Screenshots</a>
+      </div>
+    </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+
+        <h1>Configuration</h1>
+
+        Vimiv is configured via two files:
+        <t class="filename">basedir/vimivrc</t> and
+        <t class="filename">basedir/keys.conf</t> where basedir is one of
+        <t class="filename">/etc/vimiv/</t> and
+        <t class="filename">~/.vimiv</t>. The default configuration
+        files are installed to <t class="filename">/etc/vimiv/</t>. It is
+        considered best-practice to copy them to
+        <t class="filename">~/.vimiv/</t> and configure the copied files.
+
+        <a name="settings"><h3>Settings</h3></a>
+
+        Settings are configured in the <t class="filename">vimivrc</t> file.
+        This file is separated into three sections:
+        <ul>
+            <li>GENERAL,</li>
+            <li>LIBRARY and</li>
+            <li>ALIASES</li>
+        </ul>
+        The first two sections configure settings, the third is used to define
+        aliases. What each setting means and what values are possible is
+        explained below:
+
+        <table>
+            <tr>
+                <th>Setting</th>
+                <th>Value</th>
+                <th>Default</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><b>GENERAL</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>start_fullscreen</td>
+                <td>Bool</td>
+                <td>no</td>
+                <td>If yes, start in fullscreen mode.</td>
+            </tr>
+            <tr>
+                <td>start_slideshow</td>
+                <td>Bool</td>
+                <td>no</td>
+                <td>If yes, start slideshow at startup.</td>
+            </tr>
+            <tr>
+                <td>slideshow_delay</td>
+                <td>Float</td>
+                <td>2.0</td>
+                <td>Specify the delay for the slideshow.</td>
+            </tr>
+            <tr>
+                <td>shuffle</td>
+                <td>Bool</td>
+                <td>no</td>
+                <td>If yes, shuffle the images in the filelist randomly.</td>
+            </tr>
+            <tr>
+                <td>display_bar</td>
+                <td>Bool</td>
+                <td>yes</td>
+                <td>If yes, show the statusbar at the bottom. Else hide it. Note
+                that error messages are still displayed, even if the statusbar
+                is hidden.</td>
+            </tr>
+            <tr>
+                <td>thumbsize</td>
+                <td>Tuple</td>
+                <td>(128,128)</td>
+                <td>Size for the thumbnails in the form of (x, y).</td>
+            </tr>
+            <tr>
+                <td>thumb_maxsize</td>
+                <td>Tuple</td>
+                <td>(256,256)</td>
+                <td>Maximum size for the thumbnails. The upper limit when
+                    zooming in on thumbnails. Larger means slower at thumbnail
+                    creation. Anything bigger than (512, 512) is ignored.</td>
+            </tr>
+            <tr>
+                <td>geometry</td>
+                <td>String</td>
+                <td>800x600</td>
+                <td>String in the form of "WIDTHxHEIGHT" specifying the default
+                size for the window. Note that not all window managers respect
+                this setting.</td>
+            </tr>
+            <tr>
+                <td>recursive</td>
+                <td>Bool</td>
+                <td>no</td>
+                <td>If yes, search the given directory recursively for images at
+                startup.</td>
+            </tr>
+            <tr>
+                <td>rescale_svg</td>
+                <td>Bool</td>
+                <td>yes</td>
+                <td>If yes, rescale vector graphics automatically by reloading
+                    the image. Otherwise simply zoom as if they were a normal
+                    image.</td>
+            </tr>
+            <tr>
+                <td>overzoom</td>
+                <td>Bool</td>
+                <td>no</td>
+                <td>If yes, scale images smaller than the current window size up
+                to fit. Useful for UHD displays, not good when viewing icons or
+                other small images.</td>
+            </tr>
+            <tr>
+                <td>search_case_sensitive</td>
+                <td>Bool</td>
+                <td>yes</td>
+                <td>If yes, search case sensitively, ignore case otherwise.</td>
+            </tr>
+            <tr>
+                <td>incsearch</td>
+                <td>Bool</td>
+                <td>yes</td>
+                <td>If yes, search incrementally when typing.</td>
+            </tr>
+            <tr>
+                <td>cache_thumbnails</td>
+                <td>Bool</td>
+                <td>yes</td>
+                <td>If yes, cache thumbnails saving them to
+                    <t class="filename">~/.vimiv/Thumbnails/</t>.</td>
+            </tr>
+            <tr>
+                <td>copy_to_primary</td>
+                <td>Bool</td>
+                <td>no</td>
+                <td>If yes, copy to primary selection instead of clipboard.</td>
+            </tr>
+            <tr>
+                <td>commandline_padding</td>
+                <td>Int</td>
+                <td>6</td>
+                <td>Padding to use in the command line and statusbar.</td>
+            </tr>
+            <tr>
+                <td>completion_height</td>
+                <td>Int</td>
+                <td>200</td>
+                <td>Height of the completion menu when showin command line
+                    completions.</td>
+            </tr>
+        <tr>
+            <td><b>LIBRARY</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>show_library</td>
+            <td>Bool</td>
+            <td>no</td>
+            <td>If yes, always show library at start-up.</td>
+        </tr>
+        <tr>
+            <td>library_width</td>
+            <td>Int</td>
+            <td>300</td>
+            <td>Default width of the library when an image is open.</td>
+        </tr>
+        <tr>
+            <td>expand_lib</td>
+            <td>Bool</td>
+            <td>yes</td>
+            <td>If yes, automatically expand the library to full window size if
+                no image is open.</td>
+        </tr>
+        <tr>
+            <td>border_width</td>
+            <td>Int</td>
+            <td>0</td>
+            <td>Width of the border separating library and image.</td>
+        </tr>
+        <tr>
+            <td>markup</td>
+            <td>String</td>
+            <td>&lt;span foreground="#875FFF"&gt;</td>
+            <td>Markup used to highlight search results. This must be a correct
+                markup opening in the form of one &lt;span ...&gt; element as it
+                gets closed with &lt;/span/&gt;</td>
+        </tr>
+        <tr>
+            <td>show_hidden</td>
+            <td>Bool</td>
+            <td>no</td>
+            <td>If yes, show hidden files in the library and open hidden
+                images.</td>
+        </tr>
+        <tr>
+            <td>desktop_start_dir</td>
+            <td>String</td>
+            <td>~</td>
+            <td>The directory in which vimiv should start if opened via the
+                .desktop file.</td>
+        </tr>
+        <tr>
+            <td>file_check_amount</td>
+            <td>Int</td>
+            <td>30</td>
+            <td>The amount of files vimiv should check in a directory for
+                whether they are images or not. This affects the size column of
+                directories in the library. As soon as this number is reached,
+                checks are stopped and a + is appended, e.g. 30+. A higher
+                number increases precision and information at the cost of
+                speed.</td>
+        </tr>
+        <tr>
+            <td>tilde_in_statusbar</td>
+            <td>Bool</td>
+            <td>yes</td>
+            <td>If yes, collapse $HOME to ~ in the statusbar in the
+                library.</td>
+        </tr>
+        </table>
+
+        <h6>ALIASES</h6>
+
+        It is possible to configure aliases for the command line in this section.
+        An alias is defined in the form of:</br>
+        <t class="command"><b>aliasname</b>: <i>command</i></t>.</br>
+        See also: the <a href="../commands/#alias">alias command</a>.
+
+        <a name="keybindings"><h3>Keybindings</h3></a>
+
+        Keybindings are configured in the <t class="filename">keys.conf</t>
+        file. Similar to the <t class="filename">vimivrc</t> this file is split
+        up into sections:
+        <ul>
+            <li>GENERAL: keybindings defined here apply in image and thumbnail
+                mode as well as the library.</li>
+            <li>IM_THUMB: keybindings defined here apply in image and thumbnail
+                mode.</li>
+            <li>IM_LIB: keybindings defined here apply in image mode and in the
+                library.</li>
+            <li>IMAGE: keybindings defined here only apply in image mode.</li>
+            <li>THUMBNAIL: keybindings defined here only apply in thumbnail
+                mode. Note: empty by default.</li>
+            <li>LIBRARY: keybindings defined here only apply in the
+                library.</li>
+            <li>MANIPULATE: keybindings defined here only apply in manipulate
+                mode.</li>
+            <li>COMMAND: keybindings defined here only apply in the command
+                line.</li>
+        </ul>
+
+        Keybindings are defined in the form of:</br>
+        <t class="command"><b>keyname</b>: <i>command [arguments]</i></t>.</br>
+        <b class="command">keyname</b> has to be a valid key symbol like
+        "a" or "b", but also e.g. "colon" for ":". A useful tool in X to check
+        for these names interactively is <code>xev</code>.</br>
+        Supported modifiers are:
+        <ul>
+            <li>Shift via Shift+keyname</li>
+            <li>Control via ^keyname</li>
+            <li>Alt via Alt+keyname</li>
+        </ul>
+        <i class="command">command [arguments]</i> has to be a valid vimiv
+        command with correct arguments. For a complete list of commands with
+        explanations check
+        <a href="../commands/#commands">here</a>.
+
+      </section>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
