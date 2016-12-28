@@ -608,12 +608,10 @@ a:hover {
   color: #fff;
   padding: 6px 20px;
   display: inline-block;
-  text-align: center;
   transition: all 150ms ease;
 }
 .btn:hover {
   color: #fff;
-  background-color: #8DB5DD;
   box-shadow: 0;
 }
 
@@ -841,5 +839,10 @@ section #title .credits.right {
   }
   #header .wrapper {
     padding: 0 10px;
+  }
+
+  .btn {
+      padding: 2px 4px;
+      width: 100%;
   }
 }
