@@ -612,6 +612,8 @@ a:hover {
 }
 .btn:hover {
   color: #fff;
+  background: #575757;
+  border-bottom: 0px solid;
   box-shadow: 0;
 }
 
@@ -754,10 +756,6 @@ dt {
   line-height: 40px;
   overflow: hidden;
 }
-#header a:hover {
-  background: #575757;
-  border-bottom: 0px solid;
-}
 #header .nav {
   float: right;
   padding: 0;
@@ -814,7 +812,7 @@ section #title .credits.right {
   float: right;
 }
 
-@media print, screen and (max-width: 960px) {
+@media print, screen and (max-width: 640px) {
   #title .credits {
     display: block;
     width: 100%;
@@ -828,6 +826,19 @@ section #title .credits.right {
   #title .credits .right {
     float: none;
     display: block;
+  }
+
+  #header {
+    position: static;
+    line-height: 20px;
+  }
+  #header .wrapper {
+    padding: 0 10px;
+  }
+
+  .btn {
+      padding: 2px 4px;
+      width: 32%;
   }
 }
 @media print, screen and (max-width: 480px) {
