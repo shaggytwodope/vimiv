@@ -82,8 +82,8 @@
     This simply calls the script
     <a href="https://github.com/karlch/vimiv/blob/master/scripts/run_tests.sh" class="filename">run_tests.sh</a>.
     which starts by cloning the images used for tests from the branch
-    <a href="https://github.com/karlch/vimiv/tree/testimages">testimages</a>. If
-    then starts openbox in Xvfb on display :42. The testsuite is then run with
+    <a href="https://github.com/karlch/vimiv/tree/testimages">testimages</a>. It
+    starts Xvfb on display :42. The testsuite is then run with
     <a href="https://nose.readthedocs.io/en/latest/">nosetests</a>.</br></br>
 
     Similarly the stlye checkers are run with
@@ -115,7 +115,6 @@
     <ul>
         <li>nosetests</li>
         <li>xvfb</li>
-        <li>openbox or any other minimal window manager to run in xvfb</li>
         <li>python coverage</li>
     </ul>
     <h6>For the style checkers</h6>
