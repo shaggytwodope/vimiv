@@ -1,13 +1,6 @@
 <!doctype html>
 <html>
-<script type="text/javascript">
-  function unhide(divID) {
-    var item = document.getElementById(divID);
-    if (item) {
-      item.className=(item.className=='hidden')?'unhidden':'hidden';
-    }
-  }
-</script>
+<script src="../../javascripts/toggle_headers.js"></script>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -55,34 +48,25 @@
     Some commands support passing [count] as repeat or step.
     </p>
 
-    <p>
-    A keybinding cheatsheet for every mode has been on my whishlist for quite a
-    while now but unfortunately I still haven't gotten to it...
-    </p>
+    <a name="cheatsheet"><h4>Keybinding cheatsheet</h4></a>
 
-    <a href="javascript:unhide('toggle_image')"><h6>Image</h6></a>
-    <div id="toggle_image" class="hidden">
-        Lots of image information
+    <h6>
+    <a href="javascript:unhide('image_header')" class="unhidden_header" id="image_header">Image</a>
+    <a href="javascript:unhide('library_header')" class="hidden_header" id="library_header">Library</a>
+    <a href="javascript:unhide('thumbnail_header')" class="hidden_header" id="thumbnail_header">Thumbnail</a>
+    <a href="javascript:unhide('manipulate_header')" class="hidden_header" id="manipulate_header">Manipulate</a>
+    </h6>
+    <div id="toggle_image" class="unhidden">
+        <center><a href="../../images/keybindings/keyboard_image.png"><img src="../../images/keybindings/keyboard_image.png"></a></center>
     </div>
-
-    <a href="javascript:unhide('toggle_library')"><h6>Library</h6></a>
     <div id="toggle_library" class="hidden">
-        Lots of image information
+        <center><a href="../../images/keybindings/keyboard_library.png"><img src="../../images/keybindings/keyboard_library.png"></a></center>
     </div>
-
-    <a href="javascript:unhide('toggle_thumbnail')"><h6>Thumbnail</h6></a>
     <div id="toggle_thumbnail" class="hidden">
-        Lots of image information
+        <center><a href="../../images/keybindings/keyboard_thumbnail.png"><img src="../../images/keybindings/keyboard_thumbnail.png"></a></center>
     </div>
-
-    <a href="javascript:unhide('toggle_manipulate')"><h6>Manipulate</h6></a>
     <div id="toggle_manipulate" class="hidden">
-        Lots of image information
-    </div>
-
-    <a href="javascript:unhide('toggle_commandline')"><h6>Command line</h6></a>
-    <div id="toggle_commandline" class="hidden">
-        Lots of image information
+        <center><a href="../../images/keybindings/keyboard_manipulate.png"><img src="../../images/keybindings/keyboard_manipulate.png"></a></center>
     </div>
 
     <a name="commands"><h1>Commands</h1></a>

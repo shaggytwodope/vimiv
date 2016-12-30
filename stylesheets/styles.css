@@ -652,6 +652,20 @@ a:hover {
     font-size: 14px;
 }
 
+.unhidden_header {
+    font-size: 16px;
+    padding: 0 16% 0 0;
+}
+.hidden_header {
+    font-size: 16px;
+    padding: 0 16% 0 0;
+    color: #CCCCCC;
+}
+
+.hidden_header:hover {
+    color: #FFFFFF;
+}
+
 li {
   list-style-image: url("../images/bullet.png");
 }
