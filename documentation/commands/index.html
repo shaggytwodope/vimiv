@@ -44,8 +44,8 @@
 
     <p>
     Entering a number anywhere but in the command line will save the number as
-    [count]. The current [count] is displayed in the statusbar at the bottom right.
-    Some commands support passing [count] as repeat or step.
+    [count]. The current [count] is displayed in the statusbar at the bottom
+    right.  Some commands support passing [count] as repeat or step.
     </p>
 
     <a name="cheatsheet"><h4>Keybinding cheatsheet</h4></a>
@@ -436,6 +436,8 @@
     <h6>Optional arguments:</h6>
     <li><i class="command">value</i>: Value to increase width by. Defaults to
         20.</li>
+    <h6>Count:</h6>
+    Multiply [value] by [count].
 
     <a name="last"><h4>last</h4></a>
     Move to the last image of the filelist in image/thumbnail mode.
@@ -468,6 +470,9 @@
     <a name="move_up"><h4>move_up</h4></a>
     Move up one directory in the library.
     <p>The library is opened and focused if it is not open or focused yet.</p>
+    <h6>Count:</h6>
+    Move up [count] directories. So e.g. 2move_up is equivalent to
+    cd ../../..
 
     <a name="next"><h4>next</h4></a>
     Move to the next image in the filelist of image mode.
@@ -576,6 +581,8 @@
     <h6>Optional arguments:</h6>
     <li><i class="command">value</i>: Value to decrease width by. Defaults to
         20.</li>
+    <h6>Count:</h6>
+    Multiply [value] by [count].
 
     <a name="slideshow"><h4>slideshow</h4></a>
     Toggle the slideshow.
@@ -587,6 +594,8 @@
     Change the value of the slideshow delay.
     <h6>Positional arguments:</h6>
     <li><i class="command">value</i>: Change by value.</li>
+    <h6>Count:</h6>
+    Multiply [value] by [count].
     <h6>Note:</h6>
     This decreases or increases by the given value.  If you want to set the
     delay to a specific value, use <a href="#set slideshow_delay">set
@@ -736,6 +745,8 @@
     <h6>Positional arguments:</h6>
     <li><i class="command">direction</i>: The direction to scroll in. One of <i
            class = "command">hjklHJKL</i>. Capitals scroll to the far end.</li>
+    <h6>Count:</h6>
+    Scroll [count] times.
 
     <a name="scroll_lib"><h4>scroll_lib</h4></a>
     Syntax: <t class="command"><b>:scroll_lib</b> <i>direction</i></t></br>
@@ -743,6 +754,8 @@
     <h6>Positional arguments:</h6>
     <li><i class="command">direction</i>: The direction to scroll in. One of <i
            class = "command">hjkl</i>.</li>
+    <h6>Count:</h6>
+    Scroll [count] times.
 
     <a name="search"><h4>search</h4></a>
     Syntax: <t class="command"><b>:search</b> <i>text</i></t></br>
@@ -801,6 +814,8 @@
     <li><i class="command">value</i>: Change by value. Defaults to 1.</li>
     <h6>Note:</h6>
     Only makes sense in MANIPULATE section.
+    <h6>Count:</h6>
+    Multiply [value] by [count].
 
     <a name="focus_slider"><h4>focus_slider</h4></a>
     Syntax: <t class="command"><b>:focus_slider</b> <i>name</i></t></br>
