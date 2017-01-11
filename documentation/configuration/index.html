@@ -279,20 +279,13 @@
         file. Similar to the <t class="filename">vimivrc</t> this file is split
         up into sections:
         <ul>
-            <li>GENERAL: keybindings defined here apply in image and thumbnail
-                mode as well as the library.</li>
-            <li>IM_THUMB: keybindings defined here apply in image and thumbnail
+            <li>IMAGE: keybindings defined here apply in image mode.</li>
+            <li>THUMBNAIL: keybindings defined here apply in thumbnail
                 mode.</li>
-            <li>IM_LIB: keybindings defined here apply in image mode and in the
-                library.</li>
-            <li>IMAGE: keybindings defined here only apply in image mode.</li>
-            <li>THUMBNAIL: keybindings defined here only apply in thumbnail
-                mode. Note: empty by default.</li>
-            <li>LIBRARY: keybindings defined here only apply in the
-                library.</li>
-            <li>MANIPULATE: keybindings defined here only apply in manipulate
+            <li>LIBRARY: keybindings defined here apply in the library.</li>
+            <li>MANIPULATE: keybindings defined here apply in manipulate
                 mode.</li>
-            <li>COMMAND: keybindings defined here only apply in the command
+            <li>COMMAND: keybindings defined here apply in the command
                 line.</li>
         </ul>
 
@@ -311,6 +304,9 @@
         command with correct arguments. For a complete list of commands with
         explanations check
         <a href="../commands/#commands">here</a>.
+
+        Mouse bindings are defined in the same form. Simply use "Button" and the
+        corresponding number like "Button1" as keyname.
 
       </section>
     </div>
