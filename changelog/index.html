@@ -37,10 +37,21 @@
 
         The most important changes between versions are listed here.
 
-        <h4>v0.8.1 (unreleased)</h4>
+        <h4>v0.9.0 (unreleased)</h4>
         <ul>
         <li>Rewrite the generation of the dictionary used for storing internal
-            commands.</li>
+            commands</li>
+        <li>Also read configuration files from XDG_CONFIG_HOME</li>
+        <li>Implement the freedesktop standard for thumbnail management (thanks
+            woefe), this leads to these changes:
+            <li class="li2">remove the settings cache_thumbnails, thumbsize and
+                thumb_maxsize</li>
+            <li class="li2">new default_thumbsize setting</li>
+            <li class="li2">remove the clear_thumbs command</li>
+        </li>
+        <li>Thumbnail generation and scaling is now asynchronous (thanks
+            woefe)
+        </li>
         </ul>
 
         <h4>v0.8</h4>
