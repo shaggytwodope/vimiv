@@ -116,9 +116,10 @@
     Images can be rotated with the <code>&lt;</code> and <code>&gt;</code>,
     flipped with the <code>|</code> and <code>_</code> keys. These changes are
     automatically applied to the file. An image is deleted with <code>x</code>.
-    This actually moves the image to <b class="filename">~/.vimiv/Trash</b>.
+    This actually moves the image to the trash directory specified by the
+    freedesktop standard, by default
+    <b class="filename">$XDG_DATA_HOME/Trash</b>.
     </p>
-
     <p>
     For additional editing open manipulate mode with <code>c</code>. Here
     brightness, contrast and sharpness can be edited. To focus the respective
@@ -174,7 +175,8 @@
     </p>
 
     <p>
-    Command line history is saved to <b class="filename">~/.vimiv/history</b>.
+    Command line history is saved to
+    <b class="filename">$XDG_DATA_HOME/vimiv/history</b>.
     History can be navigated and searched through using the <code>^P/^N</code>
     and <code>Up/Down</code> keys.
     </p>
@@ -204,9 +206,9 @@
 
     <p>
     <code>:tag_write tagname</code> saves the list of currently marked images to
-    a file saved in <b class="filename">~/.vimiv/Tags/tagname</b>.  If the file
-    doesn't exist, it will be created. If it does, the names will be appended to
-    it, if they aren't in the tagfile already.</br>
+    a file saved in <b class="filename">$XDG_DATA_HOME/vimiv/Tags/tagname</b>.
+    If the file doesn't exist, it will be created. If it does, the names will
+    be appended to it, if they aren't in the tagfile already.</br>
     <code>:tag_load tagname</code> loads all images in the tagfile tagname.</br>
     <code>:tag_remove tagname</code> deletes the tagfile tagname.
     </p>

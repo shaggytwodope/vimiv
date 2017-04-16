@@ -41,7 +41,7 @@
         <ul>
         <li>Rewrite the generation of the dictionary used for storing internal
             commands</li>
-        <li>Also read configuration files from XDG_CONFIG_HOME</li>
+        <li>Also read configuration files from $XDG_CONFIG_HOME/vimiv/</li>
         <li>Implement the freedesktop standard for thumbnail management (thanks
             woefe), this leads to these changes:
             <li class="li2">remove the settings cache_thumbnails, thumbsize and
@@ -51,6 +51,17 @@
         </li>
         <li>Thumbnail generation and scaling is now asynchronous (thanks
             woefe)
+        </li>
+        <li>Move data (history, logfile and tags) to $XDG_DATA_HOME/vimiv/</li>
+        <li>Implement freedesktop's trash specification, this leads to these
+            changes:
+            <li class="li2">Default trash directory is now
+                $XDG_DATA_HOME/Trash</li>
+            <li class="li2">Remove the clear_trash command as this may delete
+                far more than only vimiv's trash. If anyone has hard feelings
+                about this, it is very easy to bind to an alias.</li>
+            <li class="li2">Add an :undelete command to move images back to
+                their original path.</li>
         </li>
         </ul>
 

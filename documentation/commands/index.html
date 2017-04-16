@@ -101,10 +101,6 @@
         <td>Scroll to the center of the image.</td>
     </tr>
     <tr>
-        <td><a href="#clear_trash">clear_trash</a></td>
-        <td>Delete all files in the trash directory.</td>
-    </tr>
-    <tr>
         <td><a href="#copy_abspath">copy_abspath</a></td>
         <td>Copy the absolute path of the currently selected file to the
             clipboard.</td>
@@ -306,6 +302,10 @@
         <td>Toggle thumbnail mode.</td>
     </tr>
     <tr>
+        <td><a href="#undelete">undelete</a></td>
+        <td>Undelete an image.</td>
+    </tr>
+    <tr>
         <td><a href="#unfocus_library">unfocus_library</a></td>
         <td>Focus the widget last focused before the library.</td>
     </tr>
@@ -355,12 +355,6 @@
     <a name="center"><h4>center</h4></a>
     Scroll to the center of the current image.
 
-    <a name="clear_thumbs"><h4>clear_thumbs</h4></a>
-    Delete all files in the thumbnail directory.
-
-    <a name="clear_trash"><h4>clear_trash</h4></a>
-    Delete all files in the trash directory.
-
     <a name="copy_abspath"><h4>copy_abspath</h4></a>
     Copy the absolute path of the currently selected file to the clipboard.
     
@@ -376,8 +370,8 @@
     <a name="delete"><h4>delete</h4></a>
     Delete the currently selected image.
     
-    <p>Moves the file to the trash directory, per default <t
-       class="filename">~/.vimiv/Trash</t>.</p>
+    <p>This moves the image to the trash directory specified by the
+    freedesktop standard, per default $XDG_DATA_HOME/Trash/.</p>
 
     <a name="first"><h4>first</h4></a>
     Move to the first image of the filelist in image/thumbnail mode.
@@ -619,6 +613,15 @@
 
     <a name="thumbnail"><h4>thumbnail</h4></a>
     Toggle thumbnail mode.
+
+    <a name="undelete"><h4>undelete</h4></a>
+    Syntax: <t class="command"><b>:undelete</b> <i>basename</i></t></br>
+    Undelete the image with <i class="command">basename</i>.
+    <p>This moves it from the trash directory back to its original path.</p>
+    <h6>Positional arguments:</h6>
+    <li><i class="command">basename</i>: Unique basename of the image to
+        undelete as it is in the trash directory.</li>
+
 
     <a name="unfocus_library"><h4>unfocus_library</h4></a>
     Focus the widget last focused before the library.
